@@ -2,29 +2,29 @@
 
 include_once('ConfigDB.php');
 
-class CatTelefonoModel
+class CatTelefonoModel extends BaseDeDatos
 {
     private $mysqli;
 
     function __construct()
     {
-        //$this->configDB = ConfigDB::getConfig();
+        /*$this->configDB = ConfigDB::getConfig();
         $this->mysqli = new mysqli(
-            'localhost',
-            'root',
-            '',
-            'capacitacion_soft',
-            '3306'
+            $this->configDB['host'],
+            $this->configDB['user'],
+            $this->configDB['password'],
+            $this->configDB['database'],
+            $this->configDB['port']
         );
         if($this->mysqli->connect_errno){
             echo 'No fue posible conectarme a la base de datos';die;
-        }
-        //parent::__construct();
+        }*/
+        parent::__construct();
     }
 
     public function obtenerCatalogo(){
         //codigo nativo con mysqli
-        $query = $this->mysqli->query('select * from catalogo_telefono');
+        /*$query = $this->mysqli->query('select * from catalogo_telefono');
         $result = array();
         $indexRegistro = 0;
         while($row = $query->fetch_assoc()){
@@ -40,10 +40,8 @@ class CatTelefonoModel
             array('id_catalogo_telefono' => 3,'tipo' => 'Oficina'),
             array('id_catalogo_telefono' => 4,'tipo' => 'Casa chica'),
         );*/
-        /*$this->consulta('select * from catalogo_telefono');
+        $this->consulta('select * from catalogo_telefono');
         $catalogo = $this->procesarResultadoArray();
-        parent::__destruct();*/
-        $catalogo = $result;
         return $catalogo;
     }
 
